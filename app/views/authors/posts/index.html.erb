@@ -1,5 +1,5 @@
 <% provide(:page_title, 'Posts') %>
-<% @posts.order(created_at: :desc).each do |post| %>
+<% @posts.each do |post| %>
   <%= link_to edit_post_path(post), class: 'text-decoration-none' do %>
     <div class="card mb-3 post-card">
       <div class="card-body">
@@ -10,11 +10,6 @@
             <% end %>
           </div>
           <div class="col-md-10">
-            <% if post.published? %>
-              <span class="badge badge-primary mb-3">Published</span>
-            <% else %>
-              <span class="badge badge-secondary mb-3">Unpublished</span>
-            <% end %>
             <h5 class="card-title mb-2 text-dark"><%= post.title %></h5>
             <p class="text-secondary mb-0"><%= post.hashtag %></p>
             <p class="text-secondary mb-0"><%= post.description %></p>
