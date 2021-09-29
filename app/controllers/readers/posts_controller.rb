@@ -3,7 +3,7 @@ module Readers
 
     before_action :set_post
     def show
-      @q = Post.published.most_recently_published.ransack(params[:q])
+      @q = Post.ransack(params[:q])
       @posts = @q.result
 
       # @posts = Post.published.most_recently_published
@@ -17,7 +17,7 @@ module Readers
     end
 
     def set_post
-      @post = Post.published.friendly.find(params[:id])
+      @post = Post.friendly.find(params[:id])
     end
   end
 end

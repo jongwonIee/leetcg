@@ -11,19 +11,7 @@
         <%= render 'form', post: @post %>
       </div>
       <div class="card-footer">
-        <% if @post.published? %>
-          <a href="#" class="btn btn-dark btn-block"
-             data-reflex="click->PublisherReflex#unpublish"
-             data-post-id="<%= @post.id %>">
-            Unpublish
-          </a>
-        <% else %>
-          <a href="#" class="btn btn-dark btn-block"
-             data-reflex="click->PublisherReflex#publish"
-             data-post-id="<%= @post.id %>">
-             Publish
-          </a>
-        <% end %>
+
       </div>
     </div>
   </div>
@@ -43,11 +31,7 @@
           <% end %>
         <% end %>
         <div class="d-inline float-right mt-2">
-          <% if @post.published? %>
-            <b> Published </b> <%= time_ago_in_words(@post.published_at) %> ago
-          <% else %>
-            Unpublished
-          <% end %>
+
         </div>
       </div>
       <div class="card-body pt-5" data-controller="elements"> <!-- connect with elements_controller.js -->

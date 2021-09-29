@@ -59,7 +59,7 @@ module Authors
 
       # Only allow a list of trusted parameters through.
       def post_params
-        params.require(:post).permit(:title, :description, :hashtag, :header_image)
+        params.require(:post).permit(:title, :code, :price, :language, :condition, :stock, :in_stock, :description, :hashtag, :header_image)
       end
   end
 end

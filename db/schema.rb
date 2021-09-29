@@ -110,10 +110,13 @@ ActiveRecord::Schema.define(version: 2021_06_11_125410) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
-    t.string "description"
+    t.string "code"
     t.string "hashtag"
-    t.boolean "published"
-    t.datetime "published_at"
+    t.string "description"
+    t.integer "price"
+    t.string "language"
+    t.string "condition"
+    t.integer "stock"
     t.integer "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
