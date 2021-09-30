@@ -46,6 +46,8 @@
       <small>Current Image</small>
       <% if post.header_image.present? %>
         <%= image_tag(post.header_image, width: '100%') %>
+      <% else %>
+        <div class="header-image" style="background-image: url('/default.png')"></div>
       <% end %>
     </div>
   </div>

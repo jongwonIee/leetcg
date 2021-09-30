@@ -7,6 +7,8 @@
           <div class="col-md-2">
             <% if post.header_image.present? %>
               <div class="header-img" style="background-image: url(<%= url_for(post.header_image) %>);"></div>
+            <% else %>
+              <div class="header-img" style="background-image: url('/default.png')"></div>
             <% end %>
           </div>
           <div class="col-md-10">
