@@ -4,7 +4,11 @@
       <div class="col-md-6 col-lg-4">
         <%= link_to product_post_path(post) do %>
         <div class="card post-card">
-          <div class="header-image" style="background-image: url(<%= url_for(post.header_image) %>)"></div>
+          <% if post.header_image.present? %>
+            <div class="header-image" style="background-image: url(<%= url_for(post.header_image) %>)"></div>
+          <% else %>
+            <div class="header-image" style="background-image: url('/default.png')"></div>
+          <% end %>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><%= post.title %></h5>
             <p class="card-title"><%= post.code %></p>
