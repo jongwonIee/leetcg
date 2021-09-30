@@ -1,13 +1,9 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/"><img class="navbar-brand" src="/logo.jpeg" width="40"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="https://www.tcgplayer.com/search/product/all?seller=93970106">TCGPLAYER</a>
+          <a class="nav-link" href="https://www.tcgplayer.com/search/product/all?seller=93970106" target="_blank">TCGPLAYER</a>
         </li>
         <% if current_author.present? && current_author.id == 1 %>
           <li class="nav-item active">
@@ -18,7 +14,7 @@
           </li>
         <% end %>
       </ul>
-
+    <div class="search-bar">
       <%= search_form_for @q, html: {class: 'form-inline my-2 my-lg-0 ' }, url: product_path(@post) do |f| %>
         <%= f.search_field :title_or_description_or_code_or_hashtag_cont, class:'form-control mr-sm-2' %>
         <%= f.submit class: 'btn btn-outline-success my-2 my-sm-0' %>
@@ -26,3 +22,4 @@
     </div>
   </nav>
 </div>
+

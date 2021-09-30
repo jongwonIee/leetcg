@@ -17,6 +17,8 @@ require("@rails/actiontext")
 
 Trix.config.blockAttributes.heading1.tagName = "h3";
 
+require("bootstrap/dist/js/bootstrap")
+
 import Sortable from 'sortablejs'
 import "controllers"
 
