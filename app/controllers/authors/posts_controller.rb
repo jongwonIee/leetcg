@@ -6,7 +6,7 @@ module Authors
     def index
       # @posts = current_author.posts
       @q = Post.order(id: :desc).ransack(params[:q])
-      @pagy, @posts = pagy(@q.result, items: 9)
+      @pagy, @posts = pagy(@q.result, items: 20)
     end
 
     # GET /posts/new
