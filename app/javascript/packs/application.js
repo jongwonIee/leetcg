@@ -21,7 +21,6 @@ require("bootstrap/dist/js/bootstrap")
 
 import Sortable from 'sortablejs'
 import "controllers"
-
 import '../stylesheets/application'
 
 // d-none

@@ -1,0 +1,25 @@
+<div class="row col-lg-10 offset-lg-1">
+  <% @posts.each do |post| %>
+    <div class="col-md-6 col-lg-4">
+      <%= link_to product_post_path(post) do %>
+        <div class="card post-card">
+          <% if post.header_image.present? %>
+            <div class="header-image" style="background-image: url(<%= url_for(post.header_image) %>)"></div>
+          <% else %>
+            <div class="header-image" style="background-image: url('/default.png')"></div>
+          <% end %>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title"><%= post.title %></h5>
+              <p class="card-title"><%= post.code %></p>
+              <p class="card-title"><%= post.hashtag %></p>
+              <p class="card-title">Language: <%= post.language %></p>
+              <p class="card-title">Condition: <%= post.condition %></p>
+              <p class="card-title">$<%= post.price %></p>
+              <p class="card-title">Stock: <%= post.stock %></p>
+              <!--<p class="card-text"><%#= truncate(post.description, length:50) %></p>-->
+            </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

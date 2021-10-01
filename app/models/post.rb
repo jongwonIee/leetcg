@@ -11,10 +11,6 @@ class Post < ApplicationRecord
   has_one_attached :header_image, dependent: :destroy
   validates :header_image, content_type: [:png, :jpg, :jpeg]
 
-  validates_presence_of :title, :description
-  validates_length_of :description, within: 10..200
-
-
   def should_generate_new_friendly_id?
     title_changed?
   end
