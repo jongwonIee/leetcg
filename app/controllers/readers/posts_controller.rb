@@ -1,12 +1,9 @@
 module Readers
   class PostsController < ReadersController
-
     before_action :set_post
     def show
-      @q = Post.ransack(params[:q])
+      @q = Post.order(id: :desc).ransack(params[:q])
       @posts = @q.result
-
-      # @posts = Post.published.most_recently_published
       begin
         impressionist(@post)
       rescue
