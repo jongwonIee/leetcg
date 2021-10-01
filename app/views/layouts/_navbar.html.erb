@@ -16,11 +16,7 @@
       </ul>
     <div class="search-bar">
       <%= search_form_for @q, html: {class: 'form-inline my-2 my-lg-0 ' }, url: product_path(@post) do |f| %>
-        <%= f.search_field :title_or_description_or_code_or_hashtag_cont, class:'form-control mr-sm-2', placeholder: 'name, hashtag, code'%>
-          <%#= button_tag(type: 'submit', class: 'btn btn-secondary') do %>
-<!--            <i class="fas fa-search"></i>-->
-          <%# end %>
-        <%# end %>
+        <%= f.search_field :title_or_description_or_code_or_hashtag_cont, class:'form-control mr-sm-2', placeholder: 'name, code, hashtag'%>
       <% end %>
     </div>
   </nav>

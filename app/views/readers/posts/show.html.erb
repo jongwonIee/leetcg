@@ -11,7 +11,12 @@
         <div class="pl-3 pr-3 pt-4 pb-4">
           <h1 class="card-title mb-3"><%= @post.title %></h1>
           <div><%= @views %> Views (<%= @uniq_views %> Uniq Views) </div>
-          <div class="mb-5"><%= @post.hashtag %></div>
+          <div><%= @post.code %></div>
+          <div><%= @post.hashtag %></div>
+          <div>Language: <%= @post.language %></div>
+          <div>Condition: <%= @post.condition %></div>
+          <div>$<%= @post.price %></div>
+          <div class="mb-5">Stock: <%= @post.stock %></div>
           <% @post.elements.each do |element| %>
             <% if element.image? %>
               <div class="image-element mb-5">
