@@ -1,4 +1,5 @@
 <% provide(:page_title, 'MAIN') %>
+<%= @dt %>
 <% if @dt == 'desktop' %>
   <div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
     <div data-infinite-scroll-target="entries">
