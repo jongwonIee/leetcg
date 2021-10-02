@@ -4,7 +4,7 @@ module Readers
 
       user_agent = 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.17 Safari/537.36'
       client = DeviceDetector.new(user_agent)
-      @smartphone = client.device_type
+      @dt = client.device_type
 
       @q = Post.order(id: :desc).ransack(params[:q])
       @pagy, @posts = pagy(@q.result, items: 6)
