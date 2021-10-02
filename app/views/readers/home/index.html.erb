@@ -1,14 +1,8 @@
 <% provide(:page_title, 'MAIN') %>
-<<<<<<< HEAD
-
 <% if mobile_device? %>
   <%= render "posts" %>
   <%== pagy_bootstrap_nav(@pagy) %>
 <% else %>
-=======
-<%= @dt %>
-<% if @dt == 'desktop' %>
->>>>>>> 187dd9ff4fadac7b88f9dbce966e0721de3e7bf2
   <div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
     <div data-infinite-scroll-target="entries">
       <%= render "posts" %>
@@ -17,11 +11,4 @@
       <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
-<<<<<<< HEAD
 <% end %>
-=======
-<% else %>
-  <%= render "posts" %>
-  <%== pagy_bootstrap_nav(@pagy) %>
-<% end %>
->>>>>>> 187dd9ff4fadac7b88f9dbce966e0721de3e7bf2

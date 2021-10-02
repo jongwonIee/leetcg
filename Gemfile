@@ -76,4 +76,3 @@ gem 'impressionist'
 
 gem 'rexml'
 gem "ransack", "~> 2.4"
-gem 'device_detector'
