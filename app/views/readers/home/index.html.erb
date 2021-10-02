@@ -1,9 +1,14 @@
 <% provide(:page_title, 'MAIN') %>
-<div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
-  <div data-infinite-scroll-target="entries">
-    <%= render "posts" %>
+<% if @smartphone == 'smartphone' %>
+  <%= render "posts" %>
+  <%== pagy_bootstrap_nav(@pagy) %>
+<% else %>
+  <div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
+    <div data-infinite-scroll-target="entries">
+      <%= render "posts" %>
+    </div>
+    <div class="pagy" data-infinite-scroll-target="pagination">
+      <%== pagy_bootstrap_nav(@pagy) %>
+    </div>
   </div>
-  <div class="pagy" data-infinite-scroll-target="pagination">
-    <%== pagy_bootstrap_nav(@pagy) %>
-  </div>
-</div>
+<% end %>
