@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   root to: "readers/home#index"
   get '/product/:id' => 'readers/posts#show', as: :product_post
   get '/product' => "readers/home#index"
-  get '/list' => "posts/new"
-  get '/products' => "posts"
+  get '/list' => "authors/posts#new"
+  get '/products' => "authors/posts#index"
   scope module: 'authors' do
     get 'stats' => 'stats#index'
     resources :posts do
