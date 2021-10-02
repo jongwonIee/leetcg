@@ -1,16 +1,16 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/"><img class="navbar-brand" src="/logo.jpeg" width="40"></a>
+    <a class="navbar-brand" href="/"><img class="navbar-brand" src="/leetcg-circle.png" width="40"></a>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="https://www.tcgplayer.com/search/product/all?seller=93970106" target="_blank"><img class="navbar-brand" src="/tcgplayer.png" width="70"></a>
         </li>
         <% if current_author.present? && current_author.id == 1 %>
           <li class="nav-item active">
-            <a class="nav-link" href="/posts">Posts</a>
+            <a class="nav-link" href="/posts">Products</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/posts/new">New Post</a>
+            <a class="nav-link" href="/posts/new">List</a>
           </li>
         <% end %>
       </ul>
