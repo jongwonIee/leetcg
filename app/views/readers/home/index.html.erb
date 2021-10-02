@@ -1,5 +1,5 @@
 <% provide(:page_title, 'MAIN') %>
-<% if mobile_device? %>
+<% if not mobile_device? %>
   <%= render "posts" %>
   <div class="pagy-mobile"
     <%== pagy_bootstrap_nav(@pagy) %>
