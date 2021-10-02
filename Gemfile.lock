@@ -276,7 +276,6 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
-  device_detector
   devise
   friendly_id (~> 5.4.0)
   image_processing (~> 1.2)
