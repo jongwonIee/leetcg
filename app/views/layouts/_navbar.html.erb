@@ -5,20 +5,18 @@
         <li class="nav-item active">
           <a class="nav-link" href="https://www.tcgplayer.com/search/product/all?seller=93970106" target="_blank"><img class="navbar-brand" src="/tcgplayer.png" width="70"></a>
         </li>
-        <% if current_author.present? && current_author.id == 1 %>
-          <li class="nav-item active">
-            <a class="nav-link" href="/posts">Products</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/posts/new">List</a>
-          </li>
-        <% end %>
-      </ul>
-    <div class="search-bar">
-      <%= search_form_for @q, html: {class: 'form-inline my-2 my-lg-0 ' }, url: product_path(@post) do |f| %>
-        <%= f.search_field :title_or_description_or_code_or_hashtag_cont, class:'form-control mr-sm-2', placeholder: 'name, code, hashtag'%>
+      <% if current_author.present? && current_author.id == 1 %>
+        <li class="nav-item active">
+          <a class="nav-link" href="/posts">Products</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/posts/new">List</a>
+        </li>
       <% end %>
-    </div>
+      </ul>
+      <%= search_form_for @q, html: {class: "search-bar"}, url: product_path(@post) do |f| %>
+        <%= f.search_field :title_or_description_or_code_or_hashtag_cont, class:'form-control', placeholder: 'name, code, hashtag'%>
+      <% end %>
   </nav>
 </div>
 
