@@ -3,7 +3,7 @@
     <a class="navbar-brand" href="/"><img class="navbar-brand" src="/leetcg-circle.png" width="40"></a>
 
     <%= search_form_for @q, html: {class: "search-bar"}, url: product_path(@post) do |f| %>
-      <%= f.search_field :title_or_description_or_code_or_hashtag_cont, class:'form-control', placeholder: "Search by Name or Code or Hashtag" %>
+      <%= f.search_field :title_or_description_or_code_or_hashtag_cont, class:'form-control', placeholder: "name, code, hashtag" %>
     <% end %>
 
       <ul class="navbar-nav ml-auto">
@@ -17,7 +17,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/posts/new">List</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
+        </li>
         <li class="nav-item">
           <%= link_to destroy_author_session_path, class: "nav-link", method: :delete do %>
             <i class="fas fa-sign-out-alt"></i>
@@ -25,7 +27,7 @@
         </li>
       <% elsif current_author.present? && current_author.id != 1 %>
         <li class="nav-item">
-          <a class="nav-link" href="/posts/new"><i class="fas fa-shopping-cart"></i></a>
+          <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
         </li>
         <%= link_to edit_author_registration_path, class: "nav-link" do %>
           <i class="fas fa-user-circle"></i>

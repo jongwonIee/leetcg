@@ -1,4 +1,4 @@
-.readers.home.index {
+.home.index {
   a:hover, a:visited, a:link, a:active{
     color: black;
     text-decoration: none;
@@ -19,10 +19,12 @@
   .pagy{
     visibility:hidden;
   }
+  .add-to-cart{
+  }
 ;
 }
 
-.readers.posts.show {
+.posts.show {
   .title{
     @include font-size(4rem);
   }

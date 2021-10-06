@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_11_125410) do
+ActiveRecord::Schema.define(version: 2021_10_06_080743) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -108,6 +108,25 @@ ActiveRecord::Schema.define(version: 2021_06_11_125410) do
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "post_id", null: false
+    t.integer "order_id", null: false
+    t.decimal "total"
+    t.decimal "unit_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["post_id"], name: "index_order_items_on_post_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.decimal "subtotal"
+    t.decimal "total"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "code"
@@ -128,5 +147,7 @@ ActiveRecord::Schema.define(version: 2021_06_11_125410) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "elements", "posts"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "posts"
   add_foreign_key "posts", "authors"
 end

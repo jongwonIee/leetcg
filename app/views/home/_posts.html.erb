@@ -1,6 +1,11 @@
 <div class="row col-lg-10 offset-lg-1">
   <% @posts.each do |post| %>
     <div class="col-md-6 col-lg-4">
+      <%= form_with model: @order_item, html: {class: "add-to-cart"} do |f| %>
+        <%= f.hidden_field :post_id, value: post.id %>
+        <%= f.hidden_field :quantity, value: 1, min: 1%>
+        <%= f.button'<i class="fas fa-cart-plus"></i>'.html_safe %>
+      <% end %>
       <%= link_to product_post_path(post) do %>
         <div class="card post-card">
           <% if post.header_image.present? %>
