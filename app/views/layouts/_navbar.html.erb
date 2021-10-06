@@ -3,7 +3,7 @@
     <a class="navbar-brand" href="/"><img class="navbar-brand" src="/leetcg-circle.png" width="40"></a>
 
     <%= search_form_for @q, html: {class: "search-bar"}, url: product_path(@post) do |f| %>
-      <%= f.search_field :title_or_description_or_code_or_hashtag_cont, class:'form-control', placeholder: 'name, code, hashtag'%>
+      <%= f.search_field :title_or_description_or_code_or_hashtag_cont, class:'form-control', placeholder: "Search by Name or Code or Hashtag" %>
     <% end %>
 
       <ul class="navbar-nav ml-auto">
