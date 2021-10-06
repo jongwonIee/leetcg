@@ -1,22 +1,49 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/"><img class="navbar-brand" src="/leetcg-circle.png" width="40"></a>
-      <ul class="navbar-nav mr-auto">
+
+    <%= search_form_for @q, html: {class: "search-bar"}, url: product_path(@post) do |f| %>
+      <%= f.search_field :title_or_description_or_code_or_hashtag_cont, class:'form-control', placeholder: 'name, code, hashtag'%>
+    <% end %>
+
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
           <a class="nav-link" href="https://www.tcgplayer.com/search/product/all?seller=93970106" target="_blank"><img class="navbar-brand" src="/tcgplayer.png" width="70"></a>
         </li>
       <% if current_author.present? && current_author.id == 1 %>
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="/posts">Products</a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="/posts/new">List</a>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to destroy_author_session_path, class: "nav-link", method: :delete do %>
+            <i class="fas fa-sign-out-alt"></i>
+          <% end %>
+        </li>
+      <% elsif current_author.present? && current_author.id != 1 %>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts/new"><i class="fas fa-shopping-cart"></i></a>
+        </li>
+        <%= link_to edit_author_registration_path, class: "nav-link" do %>
+          <i class="fas fa-user-circle"></i>
+        <% end %>
+        <%= link_to destroy_author_session_path, class: "nav-link", method: :delete do %>
+          <i class="fas fa-sign-out-alt"></i>
+        <% end %>
+      <% end %>
+
+      <% if not current_author.present?%>
+        <li class="nav-item">
+          <%= link_to "Sign In", new_author_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign Up", new_author_registration_path, class: "nav-link" %>
         </li>
       <% end %>
       </ul>
-      <%= search_form_for @q, html: {class: "search-bar"}, url: product_path(@post) do |f| %>
-        <%= f.search_field :title_or_description_or_code_or_hashtag_cont, class:'form-control', placeholder: 'name, code, hashtag'%>
-      <% end %>
   </nav>
 </div>
 
