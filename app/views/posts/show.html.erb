@@ -9,7 +9,14 @@
       <% end %>
       <div class="card-body">
         <div class="pl-3 pr-3 pt-4 pb-4">
-          <h1 class="card-title mb-3"><%= @post.title %></h1>
+          <div class="card-title mb-3">
+            <%= form_with model: @order_item, html: {class: "add-to-cart"} do |f| %>
+              <span class="show-title mr-2"><%= @post.title %></span>
+              <%= f.hidden_field :post_id, value: @post.id %>
+              <%= f.hidden_field :quantity, value: 1, min: 1%>
+              <%= f.button'<i class="fas fa-cart-plus"></i>'.html_safe %>
+            <% end %>
+          </div>
           <div><%= @views %> Views (<%= @uniq_views %> Uniq Views) </div>
           <div><%= @post.code %></div>
           <div><%= @post.hashtag %></div>
@@ -17,12 +24,6 @@
           <div>Condition: <%= @post.condition %></div>
           <div>$<%= @post.price %></div>
           <div class="mb-5">Stock: <%= @post.stock %></div>
-
-          <%= form_with model: @order_item, html: {class: "add-to-cart"} do |f| %>
-            <%= f.hidden_field :post_id, value: @post.id %>
-            <%= f.hidden_field :quantity, value: 1, min: 1%>
-            <%= f.button'<i class="fas fa-cart-plus"></i>'.html_safe %>
-          <% end %>
 
           <% @post.elements.each do |element| %>
             <% if element.image? %>

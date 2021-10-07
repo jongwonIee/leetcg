@@ -7,41 +7,41 @@
     <% end %>
 
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="https://www.tcgplayer.com/search/product/all?seller=93970106" target="_blank"><img class="navbar-brand" src="/tcgplayer.png" width="70"></a>
         </li>
       <% if current_author.present? && current_author.id == 1 %>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="/posts">Products</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="/posts/new">List</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to destroy_author_session_path, class: "nav-link", method: :delete do %>
             <i class="fas fa-sign-out-alt"></i>
           <% end %>
         </li>
       <% elsif current_author.present? && current_author.id != 1 %>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
         </li>
         <%= link_to edit_author_registration_path, class: "nav-link" do %>
-          <i class="fas fa-user-circle"></i>
+          <i class="fas fa-user-circle active"></i>
         <% end %>
         <%= link_to destroy_author_session_path, class: "nav-link", method: :delete do %>
-          <i class="fas fa-sign-out-alt"></i>
+          <i class="fas fa-sign-out-alt active"></i>
         <% end %>
       <% end %>
 
       <% if not current_author.present?%>
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to "Sign In", new_author_session_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to "Sign Up", new_author_registration_path, class: "nav-link" %>
         </li>
       <% end %>
