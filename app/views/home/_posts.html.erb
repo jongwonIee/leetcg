@@ -14,7 +14,7 @@
             <span class="show-title"><%= post.title %></span>
             <%= f.hidden_field :post_id, value: post.id %>
             <%= f.hidden_field :quantity, value: 1, min: 1%>
-            <%= f.button '<i class="fas fa-cart-plus"></i>'.html_safe, html: {class: "btn btn-primary"} %>
+            <%= f.button '<i class="fas fa-cart-plus"></i>'.html_safe, html: {class: ""} %>
           <% end %>
 
           <%= link_to product_post_path(post) do %>

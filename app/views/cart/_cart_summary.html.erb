@@ -1,0 +1,11 @@
+<div class="card">
+  <p>Cart Summary</p>
+  <% @order_items.each do |item| %>
+    <p> <%= item.post.title %> x <%= item.quantity %> : $<%= item.total %></p>
+  <% end %>
+  <p>Every Order is Free Shipped, +$30 Free Tracking </p>
+  <p>Order Total: <b>$<%= current_order.subtotal %></b></p>
+
+  <p>Pay me $<%= current_order.subtotal %> with this link (Friends and Family Payment Only)</p>
+  <a href="https://paypal.me/leetcg4?locale.x=en_US"><i class="fab fa-cc-paypal fa-8x"></i></a>
+</div>
