@@ -17,6 +17,13 @@
           <div>Condition: <%= @post.condition %></div>
           <div>$<%= @post.price %></div>
           <div class="mb-5">Stock: <%= @post.stock %></div>
+
+          <%= form_with model: @order_item, html: {class: "add-to-cart"} do |f| %>
+            <%= f.hidden_field :post_id, value: @post.id %>
+            <%= f.hidden_field :quantity, value: 1, min: 1%>
+            <%= f.button'<i class="fas fa-cart-plus"></i>'.html_safe %>
+          <% end %>
+
           <% @post.elements.each do |element| %>
             <% if element.image? %>
               <div class="image-element mb-5">

@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post
   def show
-    @q = Post.order(id: :desc).ransack(params[:q])
-    @posts = @q.result
     begin
       impressionist(@post)
     rescue

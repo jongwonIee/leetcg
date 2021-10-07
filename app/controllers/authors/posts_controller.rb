@@ -11,15 +11,11 @@ module Authors
 
     # GET /posts/new
     def new
-      @post = current_author.posts.build
-      @q = Post.ransack(params[:q])
       @posts = @q.result
     end
 
     # GET /posts/1/edit
     def edit
-      @q = Post.ransack(params[:q])
-      @posts = @q.result
       @element = @post.elements.build
     end
 
@@ -45,8 +41,9 @@ module Authors
 
     # DELETE /posts/1
     def destroy
+      @post.order_items.destroy_all
       @post.destroy
-      redirect_to posts_url, notice: 'Post was successfully destroyed.'
+      redirect_to posts_url
     end
 
     private
